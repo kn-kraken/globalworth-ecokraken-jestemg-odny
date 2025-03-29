@@ -5,6 +5,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(debugShowCheckedModeBanner: false, home: HomeScreen());
@@ -12,6 +14,8 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,7 +94,7 @@ class FoodOption extends StatelessWidget {
   final String image;
   final Widget targetScreen;
 
-  FoodOption({
+  const FoodOption({super.key,
     required this.title,
     required this.image,
     required this.targetScreen,
@@ -130,7 +134,7 @@ class FoodOption extends StatelessWidget {
 class DetailScreen extends StatelessWidget {
   final String title;
 
-  DetailScreen({required this.title});
+  const DetailScreen({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -231,6 +235,8 @@ class FoodListScreen extends StatelessWidget {
       'portions': '5',
     },
   ];
+
+  FoodListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
