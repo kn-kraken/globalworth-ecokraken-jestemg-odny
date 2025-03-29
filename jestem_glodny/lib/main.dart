@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:jestem_glodny/screens/main_screen.dart';
+import 'package:jestem_glodny/style/constants.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeScreen());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: MainScreen());
   }
 }
 
@@ -26,7 +28,8 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
         iconTheme: IconThemeData(color: Colors.black),
       ),
-      backgroundColor: Colors.grey[300],
+      backgroundColor: AppColors.background1,
+
       body: Column(
         children: [
           Expanded(
@@ -94,7 +97,8 @@ class FoodOption extends StatelessWidget {
   final String image;
   final Widget targetScreen;
 
-  const FoodOption({super.key,
+  const FoodOption({
+    super.key,
     required this.title,
     required this.image,
     required this.targetScreen,
