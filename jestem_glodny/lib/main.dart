@@ -29,13 +29,22 @@ class HomeScreen extends StatelessWidget {
             child: FoodOption(
               title: 'Food Sharing',
               image: 'assets/food_sharing.png',
+              targetScreen: GamificationScreen(),
             ),
           ),
           Expanded(
-            child: FoodOption(title: 'Order', image: 'assets/order.png'),
+            child: FoodOption(
+              title: 'Order',
+              image: 'assets/order.png',
+              targetScreen: DetailScreen(title: 'Order'),
+            ),
           ),
           Expanded(
-            child: FoodOption(title: 'Eat Out', image: 'assets/eat_out.png'),
+            child: FoodOption(
+              title: 'Eat Out',
+              image: 'assets/eat_out.png',
+              targetScreen: DetailScreen(title: 'Eat Out'),
+            ),
           ),
         ],
       ),
@@ -79,8 +88,13 @@ class HomeScreen extends StatelessWidget {
 class FoodOption extends StatelessWidget {
   final String title;
   final String image;
+  final Widget targetScreen;
 
-  FoodOption({required this.title, required this.image});
+  FoodOption({
+    required this.title,
+    required this.image,
+    required this.targetScreen,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +102,7 @@ class FoodOption extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => DetailScreen(title: title)),
+          MaterialPageRoute(builder: (context) => targetScreen),
         );
       },
       child: Card(
@@ -124,6 +138,118 @@ class DetailScreen extends StatelessWidget {
       appBar: AppBar(title: Text(title)),
       body: Center(
         child: Text('Szczegóły dla $title', style: TextStyle(fontSize: 24)),
+      ),
+    );
+  }
+}
+
+class GamificationScreen extends StatelessWidget {
+  final int currentPoints = 120;
+  final int nextTierPoints = 200;
+
+  const GamificationScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    double progress = currentPoints / nextTierPoints;
+    int pointsNeeded = nextTierPoints - currentPoints;
+
+    return Scaffold(
+      appBar: AppBar(title: Text('Gamifikacja - Food Sharing')),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Column(
+              children: [
+                Icon(Icons.emoji_events, size: 100, color: Colors.amber),
+                SizedBox(height: 20),
+                Text(
+                  'Twoje Punkty: $currentPoints',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 20),
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    SizedBox(
+                      width: 100,
+                      height: 100,
+                      child: CircularProgressIndicator(
+                        value: progress,
+                        strokeWidth: 8,
+                        backgroundColor: Colors.grey[300],
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+                      ),
+                    ),
+                    Text(
+                      '$pointsNeeded pkt',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => FoodListScreen()),
+                    );
+                  },
+                  child: Text('Zdobywaj więcej punktów!'),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class FoodListScreen extends StatelessWidget {
+  final List<Map<String, String>> foodItems = [
+    {
+      'name': 'Spaghetti',
+      'chef': 'Anna',
+      'image': 'assets/spaghetti.png',
+      'portions': '3',
+    },
+    {
+      'name': 'Pizza',
+      'chef': 'Marco',
+      'image': 'assets/pizza.png',
+      'portions': '2',
+    },
+    {
+      'name': 'Sushi',
+      'chef': 'Kenji',
+      'image': 'assets/sushi.png',
+      'portions': '5',
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Dostępne posiłki')),
+      body: ListView.builder(
+        itemCount: foodItems.length,
+        itemBuilder: (context, index) {
+          final food = foodItems[index];
+          return Card(
+            child: ListTile(
+              leading: Image.asset(food['image']!, width: 50, height: 50),
+              title: Text(food['name']!),
+              subtitle: Text(
+                'Kucharz: ${food['chef']} - Porcje: ${food['portions']}',
+              ),
+            ),
+          );
+        },
       ),
     );
   }
