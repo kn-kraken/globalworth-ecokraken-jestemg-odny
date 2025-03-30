@@ -3,10 +3,13 @@ import 'package:jestem_glodny/screens/eat_out.dart';
 import 'package:jestem_glodny/screens/gamification_screen.dart';
 import 'package:jestem_glodny/screens/meal_share_action_screen.dart';
 import 'package:jestem_glodny/screens/order_screen.dart';
+import 'package:jestem_glodny/screens/points_info_popup_screen.dart';
 import 'package:jestem_glodny/style/constants.dart';
 import 'package:jestem_glodny/widgets/food_option.dart';
 
 class DailyCateringInfo extends StatelessWidget {
+  const DailyCateringInfo({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(

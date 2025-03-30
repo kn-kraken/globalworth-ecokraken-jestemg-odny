@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jestem_glodny/screens/points_info_popup_screen.dart';
 import 'package:jestem_glodny/style/constants.dart';
 import 'package:jestem_glodny/widgets/eat_list_tile.dart';
 import 'package:image_picker/image_picker.dart';
@@ -468,6 +469,23 @@ class _MealShareActionScreenState extends State<MealShareActionScreen> {
                     ),
                   ),
                 ),
+                Spacer(),
+                Row(
+                  children: [
+                    GestureDetector(
+                      child: Icon(Icons.info, size: 33),
+                      onTap:
+                          () => showDialog<String>(
+                            context: context,
+                            builder:
+                                (BuildContext context) => AlertDialog(
+                                  content: PointsInfoPopupScreen(),
+                                ),
+                          ),
+                    ),
+                  ],
+                ),
+                SizedBox(width: 30),
               ],
             ),
           ),
