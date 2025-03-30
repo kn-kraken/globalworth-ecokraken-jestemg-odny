@@ -5,7 +5,7 @@ class AppColors {
   static const Color primary1 = Color(0xFFBB142E);
   static const Color primary2 = Color(0xFFC72035);
 
-  static const Color background1 = Color(0xFFEBEBEB);
+  static const Color background1 = Color(0xFFECECEC);
   static const Color background2 = Color(0xFFFCFCFC);
 
   static const Color text1 = Color(0xFF1E1E1E);
@@ -18,5 +18,34 @@ class AppStyles {
     color: AppColors.text1,
     fontSize: 32,
     fontWeight: FontWeight.w700,
+  );
+
+  static const TextStyle mainBold2 = TextStyle(
+    color: AppColors.text1,
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+  );
+
+  static const TextStyle mainSub = TextStyle(
+    color: AppColors.text2,
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+  );
+
+  static const TextStyle mainSub2 = TextStyle(
+    color: AppColors.text2,
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+  );
+
+  static const TextStyle mainPink = TextStyle(
+    color: AppColors.primary2,
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
+  );
+  static const TextStyle subWhite = TextStyle(
+    color: AppColors.background2,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
   );
 }
