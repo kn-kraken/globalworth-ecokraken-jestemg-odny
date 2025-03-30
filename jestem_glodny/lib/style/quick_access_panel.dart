@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jestem_glodny/screens/meal_share_action_screen.dart';
+import 'package:jestem_glodny/screens/food_action_screen.dart';
 import 'package:jestem_glodny/style/constants.dart';
 
 class QuickAccessPanel extends StatelessWidget {
@@ -21,9 +21,9 @@ class QuickAccessPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap:
-          () => Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => MealShareActionScreen()),
-          ),
+          () => Navigator.of(
+            context,
+          ).push(MaterialPageRoute(builder: (context) => FoodActionScreen())),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: size * 0.05),
         child: Container(
