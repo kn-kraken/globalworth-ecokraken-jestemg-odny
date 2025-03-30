@@ -48,4 +48,10 @@ class AppStyles {
     fontSize: 12,
     fontWeight: FontWeight.w400,
   );
+
+  static const TextStyle regular = TextStyle(
+    color: AppColors.text1,
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
 }
