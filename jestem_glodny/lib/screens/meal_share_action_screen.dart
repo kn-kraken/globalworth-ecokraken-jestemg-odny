@@ -31,6 +31,7 @@ class _MealShareActionScreenState extends State<MealShareActionScreen> {
       'date': '01/04',
       'author': 'Kasia',
       'quantity': 3,
+      'points': 25,
       'type': 'wege',
       'description':
           'Świeża sałatka z mixem sałat, pomidorkami cherry, ogórkiem, czerwoną cebulą i sosem vinaigrette. Idealna jako lekki lunch lub dodatek do dania głównego.',
@@ -40,6 +41,7 @@ class _MealShareActionScreenState extends State<MealShareActionScreen> {
       'date': '01/04',
       'author': 'Marek',
       'quantity': 2,
+      'points': 50,
       'type': 'mięsne',
       'description':
           'Tradycyjna włoska lasagne z sosem bolońskim, beszamelem i serem. Zapiekana z dodatkiem świeżych ziół. Porcja bardzo sycąca.',
@@ -49,6 +51,7 @@ class _MealShareActionScreenState extends State<MealShareActionScreen> {
       'date': '01/04',
       'author': 'Anna',
       'quantity': 4,
+      'points': 20,
       'type': 'wege',
       'description':
           'Kremowy hummus z ciecierzycy z dodatkiem tahini, oliwy z oliwek i kuminu. Świetny jako dip do warzyw lub dodatek do kanapek.',
@@ -350,6 +353,24 @@ class _MealShareActionScreenState extends State<MealShareActionScreen> {
             ],
           ),
           SizedBox(height: 16),
+          TextField(
+            decoration: InputDecoration(
+              prefixIcon: Image.asset(
+                'assets/images/leaf.png',
+                height: 40,
+                width: 40,
+              ),
+              labelText: 'Wycena',
+              labelStyle: TextStyle(color: AppColors.text2),
+              filled: true,
+              fillColor: AppColors.background2,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide.none,
+              ),
+            ),
+          ),
+          SizedBox(height: 16),
           _buildTagSelector(),
           SizedBox(height: 24),
           SizedBox(
@@ -485,7 +506,7 @@ class _MealShareActionScreenState extends State<MealShareActionScreen> {
                     ),
                   ],
                 ),
-                SizedBox(width: 30),
+                SizedBox(width: 20),
               ],
             ),
           ),
@@ -560,6 +581,7 @@ class _MealShareActionScreenState extends State<MealShareActionScreen> {
                           date: item['date'],
                           author: item['author'],
                           quantity: item['quantity'],
+                          points: item['points'],
                           type: item['type'],
                           description: item['description'],
                         );

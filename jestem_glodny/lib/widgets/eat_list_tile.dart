@@ -6,6 +6,7 @@ class EatListTile extends StatelessWidget {
   final String date;
   final String author;
   final int quantity;
+  final int points;
   final String type;
   // Add description parameter
   final String description;
@@ -16,6 +17,7 @@ class EatListTile extends StatelessWidget {
     required this.date,
     required this.author,
     required this.quantity,
+    required this.points,
     required this.type,
     this.description = '', // Default empty description
   });
@@ -40,8 +42,9 @@ class EatListTile extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text('Zjedz ', style: TextStyle(color: AppColors.text1)),
-                  Image.asset('assets/images/meat.png', width: 24, height: 24),
+                  Text('Zjedz (', style: TextStyle(color: AppColors.text1)),
+                  Image.asset('assets/images/leaf.png', width: 24, height: 24),
+                  Text('× $points)', style: TextStyle(color: AppColors.text1)),
                 ],
               ),
             ),
@@ -102,13 +105,47 @@ class EatListTile extends StatelessWidget {
                 ),
               ),
 
-              Row(
+              Column(
                 children: [
-                  Text(
-                    "$quantity × ",
-                    style: AppStyles.mainBold.copyWith(fontSize: 18),
+                  Row(
+                    children: [
+                      Text(
+                        "$quantity × ",
+                        style: AppStyles.mainBold.copyWith(fontSize: 18),
+                      ),
+                      Image.asset(
+                        'assets/images/meat.png',
+                        width: 24,
+                        height: 24,
+                      ),
+                    ],
                   ),
-                  Image.asset('assets/images/meat.png', width: 24, height: 24),
+                  Row(
+                    children: [
+                      Text(
+                        "+$points × ",
+                        style: AppStyles.mainBold.copyWith(fontSize: 18),
+                      ),
+                      Image.asset(
+                        'assets/images/leaf.png',
+                        width: 24,
+                        height: 24,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "-1 × ",
+                        style: AppStyles.mainBold.copyWith(fontSize: 18),
+                      ),
+                      Image.asset(
+                        'assets/images/ramen.png',
+                        width: 24,
+                        height: 24,
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ],

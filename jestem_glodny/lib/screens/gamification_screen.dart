@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:jestem_glodny/screens/points_info_popup_screen.dart';
+import 'package:jestem_glodny/style/constants.dart';
 
 class GamificationScreen extends StatelessWidget {
   final int currentPoints = 300;
-  final int nextTierPoints = 700;
+  final int nextTierPoints = 500;
 
   const GamificationScreen({super.key});
 
@@ -59,7 +60,7 @@ class GamificationScreen extends StatelessWidget {
                           Icon(
                             Icons.emoji_events,
                             size: 40,
-                            color: Colors.amber,
+                            color: AppColors.gold,
                           ),
                           Text(
                             '1',

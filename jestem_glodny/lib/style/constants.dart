@@ -10,6 +10,8 @@ class AppColors {
 
   static const Color text1 = Color(0xFF1E1E1E);
   static const Color text2 = Color(0xFF4B4B4B);
+
+  static const Color gold = Color(0xFFFFC107);
 }
 
 class AppStyles {

@@ -34,32 +34,37 @@ class QuickAccessPanel extends StatelessWidget {
           ),
           width: size,
           height: size,
-          child: Stack(
+          child: Row(
             children: [
-              Positioned(
-                right: size * 0.1,
-                top: size * 0.1,
-                child:
-                    badgeImagePath != null
-                        ? _badgeImage(badgeImagePath!, size)
-                        : const Row(),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+              SizedBox(width: 4),
+              Stack(
                 children: [
-                  SizedBox(height: 10),
-                  mainImagePath != null
-                      ? _mainImage(mainImagePath!, size)
-                      : const Row(),
-                  ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: size * 0.9),
-                    child: Center(
-                      child: Text(
-                        title,
-                        textAlign: TextAlign.center,
-                        style: AppStyles.subWhite,
+                  Positioned(
+                    right: size * 0.075,
+                    top: size * 0.1,
+                    child:
+                        badgeImagePath != null
+                            ? _badgeImage(badgeImagePath!, size)
+                            : const Row(),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(height: 10),
+                      mainImagePath != null
+                          ? _mainImage(mainImagePath!, size)
+                          : const Row(),
+                      ConstrainedBox(
+                        constraints: BoxConstraints(maxWidth: size * 0.9),
+                        child: Center(
+                          child: Text(
+                            title,
+                            textAlign: TextAlign.center,
+                            style: AppStyles.subWhite,
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                 ],
               ),
