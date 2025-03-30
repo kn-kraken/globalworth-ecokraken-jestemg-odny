@@ -397,6 +397,80 @@ class _MealShareActionScreenState extends State<MealShareActionScreen> {
       backgroundColor: AppColors.background1,
       body: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 10, bottom: 8, top: 16),
+            child: Row(
+              children: [
+                Card(
+                  color: AppColors.background2,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Container(
+                    width: 100,
+                    padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Image.asset(
+                              'assets/images/ramen.png',
+                              height: 40,
+                              width: 40,
+                            ),
+                            SizedBox(width: 10),
+                            Text(
+                              "3",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w700,
+                                color: AppColors.text1,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(width: 20),
+                Card(
+                  color: AppColors.background2,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Container(
+                    width: 100,
+                    padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Image.asset(
+                              'assets/images/leaf.png',
+                              height: 40,
+                              width: 40,
+                            ),
+                            SizedBox(width: 10),
+                            Text(
+                              "300",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w700,
+                                color: AppColors.text1,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
           Container(
             margin: EdgeInsets.all(16),
             decoration: BoxDecoration(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jestem_glodny/screens/detail_screen.dart';
+import 'package:jestem_glodny/screens/gamification_screen.dart';
 import 'package:jestem_glodny/screens/meal_share_action_screen.dart';
 import 'package:jestem_glodny/style/constants.dart';
 import 'package:jestem_glodny/widgets/food_option.dart';
@@ -23,98 +24,28 @@ class FoodActionScreen extends StatelessWidget {
       ),
       backgroundColor: AppColors.background1,
 
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 10, bottom: 8, top: 16),
-            child: Row(
-              children: [
-                Card(
-                  color: AppColors.background2,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Container(
-                    width: 100,
-                    padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset(
-                              'assets/images/ramen.png',
-                              height: 40,
-                              width: 40,
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              "3",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                color: AppColors.text1,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(width: 20),
-                Card(
-                  color: AppColors.background2,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Container(
-                    width: 100,
-                    padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset(
-                              'assets/images/leaf.png',
-                              height: 40,
-                              width: 40,
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              "300",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                color: AppColors.text1,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            GamificationScreen(),
+            SizedBox(height: 20),
+            FoodOption(
+              title: 'Food Sharing',
+              image: 'assets/images/food_sharing.png',
+              targetScreen: MealShareActionScreen(),
             ),
-          ),
-          FoodOption(
-            title: 'Food Sharing',
-            image: 'assets/images/food_sharing.png',
-            targetScreen: MealShareActionScreen(),
-          ),
-          FoodOption(
-            title: 'Order',
-            image: 'assets/images/order.png',
-            targetScreen: DetailScreen(title: 'Order'),
-          ),
-          FoodOption(
-            title: 'Eat Out',
-            image: 'assets/images/eat_out.png',
-            targetScreen: DetailScreen(title: 'Eat Out'),
-          ),
-        ],
+            FoodOption(
+              title: 'Order',
+              image: 'assets/images/order.png',
+              targetScreen: DetailScreen(title: 'Order'),
+            ),
+            FoodOption(
+              title: 'Eat Out',
+              image: 'assets/images/eat_out.png',
+              targetScreen: DetailScreen(title: 'Eat Out'),
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: Container(
         height: 80,
