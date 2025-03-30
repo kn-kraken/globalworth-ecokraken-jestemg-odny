@@ -5,19 +5,19 @@ class FoodListScreen extends StatelessWidget {
     {
       'name': 'Spaghetti',
       'chef': 'Anna',
-      'image': 'assets/spaghetti.png',
+      'image': 'assets/images/spaghetti.png',
       'portions': '3',
     },
     {
       'name': 'Pizza',
       'chef': 'Marco',
-      'image': 'assets/pizza.png',
+      'image': 'assets/images/pizza.png',
       'portions': '2',
     },
     {
       'name': 'Sushi',
       'chef': 'Kenji',
-      'image': 'assets/sushi.png',
+      'image': 'assets/images/sushi.png',
       'portions': '5',
     },
   ];

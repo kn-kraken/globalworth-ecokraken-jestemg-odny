@@ -41,7 +41,7 @@ class EatListTile extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text('Zjedz ', style: TextStyle(color: AppColors.text1)),
-                  Image.asset('assets/meat.png', width: 24, height: 24),
+                  Image.asset('assets/images/meat.png', width: 24, height: 24),
                 ],
               ),
             ),
@@ -71,7 +71,7 @@ class EatListTile extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset('assets/salad.png', width: 40, height: 40),
+              Image.asset('assets/images/salad.png', width: 40, height: 40),
               SizedBox(width: 12),
 
               Expanded(
@@ -108,7 +108,7 @@ class EatListTile extends StatelessWidget {
                     "$quantity × ",
                     style: AppStyles.mainBold.copyWith(fontSize: 18),
                   ),
-                  Image.asset('assets/meat.png', width: 24, height: 24),
+                  Image.asset('assets/images/meat.png', width: 24, height: 24),
                 ],
               ),
             ],

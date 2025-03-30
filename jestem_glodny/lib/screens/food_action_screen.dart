@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jestem_glodny/main.dart';
+import 'package:jestem_glodny/screens/detail_screen.dart';
 import 'package:jestem_glodny/screens/meal_share_action_screen.dart';
 import 'package:jestem_glodny/style/constants.dart';
 import 'package:jestem_glodny/widgets/food_option.dart';
@@ -43,7 +43,7 @@ class FoodActionScreen extends StatelessWidget {
                         Row(
                           children: [
                             Image.asset(
-                              'assets/ramen.png',
+                              'assets/images/ramen.png',
                               height: 40,
                               width: 40,
                             ),
@@ -77,7 +77,7 @@ class FoodActionScreen extends StatelessWidget {
                         Row(
                           children: [
                             Image.asset(
-                              'assets/leaf.png',
+                              'assets/images/leaf.png',
                               height: 40,
                               width: 40,
                             ),
@@ -101,17 +101,17 @@ class FoodActionScreen extends StatelessWidget {
           ),
           FoodOption(
             title: 'Food Sharing',
-            image: 'assets/food_sharing.png',
+            image: 'assets/images/food_sharing.png',
             targetScreen: MealShareActionScreen(),
           ),
           FoodOption(
             title: 'Order',
-            image: 'assets/order.png',
+            image: 'assets/images/order.png',
             targetScreen: DetailScreen(title: 'Order'),
           ),
           FoodOption(
             title: 'Eat Out',
-            image: 'assets/eat_out.png',
+            image: 'assets/images/eat_out.png',
             targetScreen: DetailScreen(title: 'Eat Out'),
           ),
         ],

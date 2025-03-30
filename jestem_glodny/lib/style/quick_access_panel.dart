@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jestem_glodny/screens/meal_share_action_screen.dart';
 import 'package:jestem_glodny/style/constants.dart';
 
 class QuickAccessPanel extends StatelessWidget {
@@ -18,46 +19,52 @@ class QuickAccessPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: size * 0.05),
-      child: Container(
-        decoration: BoxDecoration(
-          color: color,
-          border: Border.all(color: Colors.transparent),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        width: size,
-        height: size,
-        child: Stack(
-          children: [
-            Positioned(
-              right: size * 0.1,
-              top: size * 0.1,
-              child:
-                  badgeImagePath != null
-                      ? _badgeImage(badgeImagePath!, size)
+    return GestureDetector(
+      onTap:
+          () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => MealShareActionScreen()),
+          ),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: size * 0.05),
+        child: Container(
+          decoration: BoxDecoration(
+            color: color,
+            border: Border.all(color: Colors.transparent),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          width: size,
+          height: size,
+          child: Stack(
+            children: [
+              Positioned(
+                right: size * 0.1,
+                top: size * 0.1,
+                child:
+                    badgeImagePath != null
+                        ? _badgeImage(badgeImagePath!, size)
+                        : const Row(),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: 10),
+                  mainImagePath != null
+                      ? _mainImage(mainImagePath!, size)
                       : const Row(),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: 10),
-                mainImagePath != null
-                    ? _mainImage(mainImagePath!, size)
-                    : const Row(),
-                ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: size * 0.9),
-                  child: Center(
-                    child: Text(
-                      title,
-                      textAlign: TextAlign.center,
-                      style: AppStyles.subWhite,
+                  ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: size * 0.9),
+                    child: Center(
+                      child: Text(
+                        title,
+                        textAlign: TextAlign.center,
+                        style: AppStyles.subWhite,
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
