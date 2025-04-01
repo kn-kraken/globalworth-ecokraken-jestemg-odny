@@ -3,7 +3,6 @@ import 'package:jestem_glodny/screens/eat_out.dart';
 import 'package:jestem_glodny/screens/gamification_screen.dart';
 import 'package:jestem_glodny/screens/meal_share_action_screen.dart';
 import 'package:jestem_glodny/screens/order_screen.dart';
-import 'package:jestem_glodny/screens/points_info_popup_screen.dart';
 import 'package:jestem_glodny/style/constants.dart';
 import 'package:jestem_glodny/widgets/food_option.dart';
 
@@ -37,6 +36,9 @@ class DailyCateringInfo extends StatelessWidget {
                   color: AppColors.text1,
                 ),
               ),
+              Spacer(),
+              Image.asset('assets/images/leaf.png', height: 24, width: 24),
+              Text('× 10', style: TextStyle(color: AppColors.text1)),
             ],
           ),
           SizedBox(height: 12),
@@ -88,75 +90,77 @@ class FoodActionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: AppColors.text1),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        title: Text('Jestem Głodnx!', style: TextStyle(color: AppColors.text1)),
-        backgroundColor: Colors.grey[200],
-        elevation: 0,
-        centerTitle: true,
-        iconTheme: IconThemeData(color: AppColors.text1),
-      ),
-      backgroundColor: AppColors.background1,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            GamificationScreen(),
-            SizedBox(height: 20),
-            DailyCateringInfo(), // Dodany widget cateringu
-            SizedBox(height: 20),
-            FoodOption(
-              title: 'Food Sharing',
-              image: 'assets/images/food_sharing.png',
-              targetScreen: MealShareActionScreen(),
-            ),
-            FoodOption(
-              title: 'Order',
-              image: 'assets/images/order.png',
-              targetScreen: OrderScreen(),
-            ),
-            FoodOption(
-              title: 'Eat Out',
-              image: 'assets/images/eat_out.png',
-              targetScreen: LunchListWidget(),
-            ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: Container(
-        height: 80,
-        decoration: BoxDecoration(
-          color: AppColors.background2,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: AppColors.text1),
+            onPressed: () => Navigator.of(context).pop(),
           ),
-          boxShadow: [
-            BoxShadow(color: Colors.black26, blurRadius: 10, spreadRadius: 2),
-          ],
-        ),
-        child: BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.dashboard, size: 30),
-              label: 'Pulpit',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings, size: 30),
-              label: 'Zarządzaj',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.history, size: 30),
-              label: 'Historia',
-            ),
-          ],
-          selectedItemColor: AppColors.primary1,
-          unselectedItemColor: AppColors.text2,
-          backgroundColor: Colors.transparent,
+          title: Text('HunGRY!', style: TextStyle(color: AppColors.text1)),
+          backgroundColor: Colors.grey[200],
           elevation: 0,
+          centerTitle: true,
+          iconTheme: IconThemeData(color: AppColors.text1),
+        ),
+        backgroundColor: AppColors.background1,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              GamificationScreen(),
+              SizedBox(height: 20),
+              DailyCateringInfo(), // Dodany widget cateringu
+              SizedBox(height: 20),
+              FoodOption(
+                title: 'Jadłodzielenie',
+                image: 'assets/images/food_sharing.png',
+                  targetScreen: MealShareActionScreen(),
+              ),
+              FoodOption(
+                title: 'Zamówienie grupowe',
+                image: 'assets/images/order.png',
+                targetScreen: OrderScreen(),
+              ),
+              FoodOption(
+                title: 'Wyjście na lunch',
+                image: 'assets/images/eat_out.png',
+                targetScreen: LunchListWidget(),
+              ),
+            ],
+          ),
+        ),
+        bottomNavigationBar: Container(
+          height: 80,
+          decoration: BoxDecoration(
+            color: AppColors.background2,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+            boxShadow: [
+              BoxShadow(color: Colors.black26, blurRadius: 10, spreadRadius: 2),
+            ],
+          ),
+          child: BottomNavigationBar(
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.dashboard, size: 30),
+                label: 'Pulpit',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings, size: 30),
+                label: 'Zarządzaj',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.history, size: 30),
+                label: 'Historia',
+              ),
+            ],
+            selectedItemColor: AppColors.primary1,
+            unselectedItemColor: AppColors.text2,
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+          ),
         ),
       ),
     );

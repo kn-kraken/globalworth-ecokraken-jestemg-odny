@@ -71,7 +71,7 @@ class MainScreen extends StatelessWidget {
         children: [
           QuickAccessPanel(
             size: 100,
-            title: "Jestem Głodnx",
+            title: "HunGRY",
             mainImagePath: "assets/images/plate.png",
           ),
           QuickAccessPanel(

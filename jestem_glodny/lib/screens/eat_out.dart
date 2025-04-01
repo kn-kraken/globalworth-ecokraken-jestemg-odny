@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jestem_glodny/style/constants.dart';
 
 class LunchListWidget extends StatefulWidget {
   @override
@@ -30,11 +31,12 @@ class _LunchListWidgetState extends State<LunchListWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Wyjścia na lunch'), centerTitle: true),
+      appBar: AppBar(title: Text('Wyjście na lunch'), centerTitle: true),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _showAddLunchDialog(context),
+        // backgroundColor: AppColors.primary1,
+        // foregroundColor: AppColors.background2,
         child: Icon(Icons.add),
-        backgroundColor: Colors.orange,
       ),
       body: Container(
         decoration: BoxDecoration(color: Colors.grey[100]),
@@ -46,7 +48,7 @@ class _LunchListWidgetState extends State<LunchListWidget> {
               elevation: 2,
               margin: EdgeInsets.symmetric(vertical: 4, horizontal: 2),
               child: ListTile(
-                leading: Icon(Icons.restaurant, color: Colors.orange),
+                leading: Icon(Icons.restaurant, color: AppColors.primary1),
                 title: Text(
                   lunchEvents[index].name,
                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -94,7 +96,8 @@ class _LunchListWidgetState extends State<LunchListWidget> {
               SizedBox(height: 16),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange,
+                  backgroundColor: AppColors.primary1,
+                  foregroundColor: AppColors.background2,
                   minimumSize: Size(double.infinity, 45),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -114,9 +117,11 @@ class _LunchListWidgetState extends State<LunchListWidget> {
                 },
               ),
               SizedBox(height: 16),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
+              OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  backgroundColor: AppColors.background2,
+                  foregroundColor: AppColors.primary1, // Text color
+                  side: BorderSide(color: Colors.pink, width: 2),
                   minimumSize: Size(double.infinity, 45),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -170,7 +175,8 @@ class _LunchListWidgetState extends State<LunchListWidget> {
             children: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
+                  backgroundColor: AppColors.primary1,
+                  foregroundColor: AppColors.background2,
                   minimumSize: Size(double.infinity, 45),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -182,23 +188,34 @@ class _LunchListWidgetState extends State<LunchListWidget> {
                 },
               ),
               SizedBox(height: 12),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
+              OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: Colors.pink, // Text color
+                  side: BorderSide(
+                    color: Colors.pink,
+                    width: 2,
+                  ), // Border color
                   minimumSize: Size(double.infinity, 45),
+                  backgroundColor: Colors.white, // Button background
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ), // Padding
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(8), // Rounded corners
                   ),
                 ),
-                child: Text('Wracam', style: TextStyle(fontSize: 16)),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
+                onPressed: () => Navigator.pop(context),
+                child: Text(
+                  "Wracam",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
               ),
               SizedBox(height: 12),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange,
+                  backgroundColor: AppColors.primary3,
+                  foregroundColor: AppColors.background2,
                   minimumSize: Size(double.infinity, 45),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -235,11 +252,11 @@ class _LunchListWidgetState extends State<LunchListWidget> {
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _buildTimeButton(context, '5 minut', Colors.blue),
+              _buildTimeButton(context, '5 minut', AppColors.primary1),
               SizedBox(height: 8),
-              _buildTimeButton(context, '10 minut', Colors.blue[700]!),
+              _buildTimeButton(context, '10 minut', AppColors.primary3),
               SizedBox(height: 8),
-              _buildTimeButton(context, '15 minut', Colors.blue[900]!),
+              _buildTimeButton(context, '15 minut', AppColors.primary4),
             ],
           ),
         );
@@ -251,6 +268,7 @@ class _LunchListWidgetState extends State<LunchListWidget> {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: color,
+        foregroundColor: AppColors.background2,
         minimumSize: Size(double.infinity, 45),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),

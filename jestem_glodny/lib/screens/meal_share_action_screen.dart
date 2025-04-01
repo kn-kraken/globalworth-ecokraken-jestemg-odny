@@ -31,6 +31,7 @@ class _MealShareActionScreenState extends State<MealShareActionScreen> {
       'date': '01/04',
       'author': 'Kasia',
       'quantity': 3,
+      'points': 25,
       'type': 'wege',
       'description':
           'Świeża sałatka z mixem sałat, pomidorkami cherry, ogórkiem, czerwoną cebulą i sosem vinaigrette. Idealna jako lekki lunch lub dodatek do dania głównego.',
@@ -40,6 +41,7 @@ class _MealShareActionScreenState extends State<MealShareActionScreen> {
       'date': '01/04',
       'author': 'Marek',
       'quantity': 2,
+      'points': 50,
       'type': 'mięsne',
       'description':
           'Tradycyjna włoska lasagne z sosem bolońskim, beszamelem i serem. Zapiekana z dodatkiem świeżych ziół. Porcja bardzo sycąca.',
@@ -49,6 +51,7 @@ class _MealShareActionScreenState extends State<MealShareActionScreen> {
       'date': '01/04',
       'author': 'Anna',
       'quantity': 4,
+      'points': 20,
       'type': 'wege',
       'description':
           'Kremowy hummus z ciecierzycy z dodatkiem tahini, oliwy z oliwek i kuminu. Świetny jako dip do warzyw lub dodatek do kanapek.',
@@ -350,6 +353,24 @@ class _MealShareActionScreenState extends State<MealShareActionScreen> {
             ],
           ),
           SizedBox(height: 16),
+          TextField(
+            decoration: InputDecoration(
+              prefixIcon: Image.asset(
+                'assets/images/leaf.png',
+                height: 40,
+                width: 40,
+              ),
+              labelText: 'Wycena',
+              labelStyle: TextStyle(color: AppColors.text2),
+              filled: true,
+              fillColor: AppColors.background2,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide.none,
+              ),
+            ),
+          ),
+          SizedBox(height: 16),
           _buildTagSelector(),
           SizedBox(height: 24),
           SizedBox(
@@ -381,193 +402,197 @@ class _MealShareActionScreenState extends State<MealShareActionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: AppColors.text1),
-          onPressed: () => Navigator.of(context).pop(),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: AppColors.text1),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          title: Text(
+            'Jadłodzielenie',
+            style: AppStyles.mainBold.copyWith(fontSize: 20),
+          ),
+          backgroundColor: AppColors.background2,
+          elevation: 0,
+          centerTitle: true,
         ),
-        title: Text(
-          'Jadłodzielenie',
-          style: AppStyles.mainBold.copyWith(fontSize: 20),
-        ),
-        backgroundColor: AppColors.background2,
-        elevation: 0,
-        centerTitle: true,
-      ),
-      backgroundColor: AppColors.background1,
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 10, bottom: 8, top: 16),
-            child: Row(
-              children: [
-                Card(
-                  color: AppColors.background2,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Container(
-                    width: 100,
-                    padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset(
-                              'assets/images/ramen.png',
-                              height: 40,
-                              width: 40,
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              "3",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                color: AppColors.text1,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
+        backgroundColor: AppColors.background1,
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 10, bottom: 8, top: 16),
+              child: Row(
+                children: [
+                  Card(
+                    color: AppColors.background2,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                  ),
-                ),
-                SizedBox(width: 20),
-                Card(
-                  color: AppColors.background2,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Container(
-                    width: 100,
-                    padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset(
-                              'assets/images/leaf.png',
-                              height: 40,
-                              width: 40,
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              "300",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                color: AppColors.text1,
+                    child: Container(
+                      width: 100,
+                      padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Image.asset(
+                                'assets/images/ramen.png',
+                                height: 40,
+                                width: 40,
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Spacer(),
-                Row(
-                  children: [
-                    GestureDetector(
-                      child: Icon(Icons.info, size: 33),
-                      onTap:
-                          () => showDialog<String>(
-                            context: context,
-                            builder:
-                                (BuildContext context) => AlertDialog(
-                                  content: PointsInfoPopupScreen(),
+                              SizedBox(width: 10),
+                              Text(
+                                "3",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.text1,
                                 ),
+                              ),
+                            ],
                           ),
-                    ),
-                  ],
-                ),
-                SizedBox(width: 30),
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: AppColors.background2,
-              borderRadius: BorderRadius.circular(25),
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () => setState(() => isEatSelected = true),
-                    child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 12),
-                      decoration: BoxDecoration(
-                        color:
-                            isEatSelected
-                                ? AppColors.primary1
-                                : Colors.transparent,
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: Text(
-                        'Zjedz',
-                        textAlign: TextAlign.center,
-                        style: AppStyles.mainBold.copyWith(
-                          fontSize: 16,
-                          color: isEatSelected ? Colors.white : AppColors.text1,
-                        ),
+                        ],
                       ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () => setState(() => isEatSelected = false),
+                  SizedBox(width: 20),
+                  Card(
+                    color: AppColors.background2,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                     child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 12),
-                      decoration: BoxDecoration(
-                        color:
-                            !isEatSelected
-                                ? AppColors.primary1
-                                : Colors.transparent,
-                        borderRadius: BorderRadius.circular(25),
+                      width: 100,
+                      padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Image.asset(
+                                'assets/images/leaf.png',
+                                height: 40,
+                                width: 40,
+                              ),
+                              SizedBox(width: 10),
+                              Text(
+                                "300",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.text1,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                      child: Text(
-                        'Gotuj',
-                        textAlign: TextAlign.center,
-                        style: AppStyles.mainBold.copyWith(
-                          fontSize: 16,
+                    ),
+                  ),
+                  Spacer(),
+                  Row(
+                    children: [
+                      GestureDetector(
+                        child: Icon(Icons.info, size: 33),
+                        onTap:
+                            () => showDialog<String>(
+                              context: context,
+                              builder:
+                                  (BuildContext context) => AlertDialog(
+                                    content: PointsInfoPopupScreen(),
+                                  ),
+                            ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(width: 20),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: AppColors.background2,
+                borderRadius: BorderRadius.circular(25),
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () => setState(() => isEatSelected = true),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 12),
+                        decoration: BoxDecoration(
                           color:
-                              !isEatSelected ? Colors.white : AppColors.text1,
+                              isEatSelected
+                                  ? AppColors.primary1
+                                  : Colors.transparent,
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: Text(
+                          'Zjedz',
+                          textAlign: TextAlign.center,
+                          style: AppStyles.mainBold.copyWith(
+                            fontSize: 16,
+                            color:
+                                isEatSelected ? Colors.white : AppColors.text1,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () => setState(() => isEatSelected = false),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 12),
+                        decoration: BoxDecoration(
+                          color:
+                              !isEatSelected
+                                  ? AppColors.primary1
+                                  : Colors.transparent,
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: Text(
+                          'Gotuj',
+                          textAlign: TextAlign.center,
+                          style: AppStyles.mainBold.copyWith(
+                            fontSize: 16,
+                            color:
+                                !isEatSelected ? Colors.white : AppColors.text1,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Expanded(
-            child:
-                isEatSelected
-                    ? ListView.builder(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
-                      itemCount: eatItems.length,
-                      itemBuilder: (context, index) {
-                        final item = eatItems[index];
-                        return EatListTile(
-                          title: item['title'],
-                          date: item['date'],
-                          author: item['author'],
-                          quantity: item['quantity'],
-                          type: item['type'],
-                          description: item['description'],
-                        );
-                      },
-                    )
-                    : SingleChildScrollView(child: _buildAddMealForm()),
-          ),
-        ],
+            Expanded(
+              child:
+                  isEatSelected
+                      ? ListView.builder(
+                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        itemCount: eatItems.length,
+                        itemBuilder: (context, index) {
+                          final item = eatItems[index];
+                          return EatListTile(
+                            title: item['title'],
+                            date: item['date'],
+                            author: item['author'],
+                            quantity: item['quantity'],
+                            points: item['points'],
+                            type: item['type'],
+                            description: item['description'],
+                          );
+                        },
+                      )
+                      : SingleChildScrollView(child: _buildAddMealForm()),
+            ),
+          ],
+        ),
       ),
     );
   }
