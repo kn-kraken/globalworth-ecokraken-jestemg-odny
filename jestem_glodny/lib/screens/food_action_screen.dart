@@ -112,17 +112,17 @@ class FoodActionScreen extends StatelessWidget {
               DailyCateringInfo(), // Dodany widget cateringu
               SizedBox(height: 20),
               FoodOption(
-                title: 'Food Sharing',
+                title: 'Jadłodzielenie',
                 image: 'assets/images/food_sharing.png',
-                targetScreen: MealShareActionScreen(),
+                  targetScreen: MealShareActionScreen(),
               ),
               FoodOption(
-                title: 'Order',
+                title: 'Zamówienie grupowe',
                 image: 'assets/images/order.png',
                 targetScreen: OrderScreen(),
               ),
               FoodOption(
-                title: 'Eat Out',
+                title: 'Wyjście na lunch',
                 image: 'assets/images/eat_out.png',
                 targetScreen: LunchListWidget(),
               ),

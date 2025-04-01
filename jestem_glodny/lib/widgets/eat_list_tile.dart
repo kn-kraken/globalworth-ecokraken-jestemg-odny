@@ -106,8 +106,10 @@ class EatListTile extends StatelessWidget {
               ),
 
               Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
                         "$quantity × ",
@@ -121,6 +123,7 @@ class EatListTile extends StatelessWidget {
                     ],
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
                         "+$points × ",
@@ -134,6 +137,7 @@ class EatListTile extends StatelessWidget {
                     ],
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
                         "-1 × ",

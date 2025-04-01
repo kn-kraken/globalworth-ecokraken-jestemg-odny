@@ -25,7 +25,7 @@ class PointsInfoPopupScreen extends StatelessWidget {
           ),
           Image.asset('assets/images/ramen.png', width: 40, height: 40),
           Text(
-            "Za udział w food sharingu, wspólne zamawianie jedzenia i lunche otrzymasz liście, które wymienisz na nagrody u swojego pracodawcy.",
+            "Za udział w jadłodzieleniu, wspólne zamawianie jedzenia i lunche otrzymasz liście, które wymienisz na nagrody u swojego pracodawcy.",
             style: AppStyles.regular,
             textAlign: TextAlign.center,
           ),
