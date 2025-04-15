@@ -19,13 +19,13 @@ class PointsInfoPopupScreen extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           Text(
-            "Przygotuj posiłek dla współpracowników, aby otrzymać tokeny-rameny.",
+            "Przygotuj posiłek dla znajomych, aby otrzymać tokeny-rameny.",
             style: AppStyles.regular,
             textAlign: TextAlign.center,
           ),
           Image.asset('assets/images/ramen.png', width: 40, height: 40),
           Text(
-            "Za udział w jadłodzieleniu, wspólne zamawianie jedzenia i lunche otrzymasz liście, które wymienisz na nagrody u swojego pracodawcy.",
+            "Za udział w jadłodzieleniu, wspólne zamawianie jedzenia i lunche otrzymasz liście, które wymienisz na nagrody.",
             style: AppStyles.regular,
             textAlign: TextAlign.center,
           ),

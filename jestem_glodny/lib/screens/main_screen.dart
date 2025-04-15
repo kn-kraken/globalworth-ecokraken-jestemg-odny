@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:jestem_glodny/screens/food_action_screen.dart';
+import 'package:jestem_glodny/screens/history_screen.dart';
 import 'package:jestem_glodny/style/constants.dart';
-import 'package:jestem_glodny/style/quick_access_panel.dart';
-import 'package:jestem_glodny/widgets/event_widget.dart';
-import 'package:jestem_glodny/widgets/key_widget.dart';
+import 'package:jestem_glodny/style/daily_catering_info.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -11,90 +11,106 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(""),
-        backgroundColor: AppColors.background1,
-        elevation: 0,
+        title: const Text(
+          'HunGRY',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+        ),
         centerTitle: true,
-        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: AppColors.primary1,
       ),
-      drawer: Drawer(),
-      body: Padding(
-        padding: EdgeInsets.all(16),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("Cześć, miło Cię widzieć", style: AppStyles.mainBold),
-              Text("Pulpit", style: AppStyles.mainSub),
-              SizedBox(height: 30),
-              Text("W pobliżu", style: AppStyles.mainBold),
-              KeyUnlocker(),
-              SizedBox(height: 15),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Text("Pęk kluczy (8)", style: AppStyles.mainPink),
-              ),
-              Text("Szybki dostęp", style: AppStyles.mainBold),
-              _eventSideScroller(),
-              _premiumFunctions(),
-              Text("News", style: AppStyles.mainBold),
-              _eventDisplay(),
-            ],
+      body: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(24),
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.white, Color(0xFFFCE4EC)],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
           ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Text(
+              "👋 Hey there, good-hearted foodie!",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 32),
+
+            // Start Sharing Button
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              elevation: 4,
+              color: Colors.pink[50],
+              child: InkWell(
+                borderRadius: BorderRadius.circular(16),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => FoodActionScreen()),
+                  );
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 32,
+                    horizontal: 16,
+                  ),
+                  child: Column(
+                    children: const [
+                      Icon(Icons.fastfood, size: 48, color: AppColors.primary4),
+                      SizedBox(height: 20),
+                      Text(
+                        "Zjedz coś",
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.primary2,
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        "Wybierz Swój Styl: Podziel Się, Zamów Razem lub Wyjdź Wspólnie z Innymi!",
+                        style: TextStyle(fontSize: 14, color: AppColors.text2),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 24),
+
+            DailyCateringInfo(), // Dodany widget cateringu
+            SizedBox(height: 16),
+
+            // History Button
+            ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.pink,
+                backgroundColor: Colors.white,
+                side: const BorderSide(color: Colors.pinkAccent, width: 2),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                padding: const EdgeInsets.symmetric(vertical: 16),
+              ),
+              icon: const Icon(Icons.history),
+              label: const Text(
+                "Zobacz historię",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              ),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => HistoryScreen()),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );
-  }
-
-  Widget _premiumFunctions() => Row(
-    children: [
-      Container(
-        width: 16,
-        height: 16,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/star_gray.png"),
-            fit: BoxFit.cover,
-          ),
-          borderRadius: BorderRadius.circular(12),
-        ),
-      ),
-      Text("Funkcje premium"),
-    ],
-  );
-
-  Widget _eventSideScroller() => SizedBox(
-    height: 100,
-    child: SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          QuickAccessPanel(
-            size: 100,
-            title: "HunGRY",
-            mainImagePath: "assets/images/plate.png",
-          ),
-          QuickAccessPanel(
-            size: 100,
-            title: "Miejsca parkingowe",
-            mainImagePath: "assets/images/parking.png",
-          ),
-          QuickAccessPanel(
-            size: 100,
-            title: "Sale konferencyjne",
-            mainImagePath: "assets/images/conference.png",
-          ),
-          QuickAccessPanel(
-            size: 100,
-            title: "Biurka",
-            mainImagePath: "assets/images/desktops.png",
-          ),
-        ],
-      ),
-    ),
-  );
-
-  Widget _eventDisplay() {
-    return EventWidget();
   }
 }
