@@ -23,7 +23,7 @@ class MainScreen extends StatelessWidget {
         padding: const EdgeInsets.all(24),
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.white, Color(0xFFFCE4EC)],
+            colors: [Colors.white, Color.fromARGB(255, 252, 232, 189)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -32,7 +32,7 @@ class MainScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const Text(
-              "👋 Hey there, good-hearted foodie!",
+              "👋 Witaj, na co masz dziś ochotę?",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
               textAlign: TextAlign.center,
             ),
@@ -44,7 +44,7 @@ class MainScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
               ),
               elevation: 4,
-              color: Colors.pink[50],
+              color: Colors.white,
               child: InkWell(
                 borderRadius: BorderRadius.circular(16),
                 onTap: () {
@@ -59,14 +59,14 @@ class MainScreen extends StatelessWidget {
                   ),
                   child: Column(
                     children: const [
-                      Icon(Icons.fastfood, size: 48, color: AppColors.primary4),
+                      Icon(Icons.fastfood, size: 48, color: AppColors.primary1),
                       SizedBox(height: 20),
                       Text(
                         "Zjedz coś",
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.primary2,
+                          color: AppColors.primary1,
                         ),
                       ),
                       SizedBox(height: 8),
@@ -89,9 +89,9 @@ class MainScreen extends StatelessWidget {
             // History Button
             ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.pink,
+                foregroundColor: AppColors.primary1,
                 backgroundColor: Colors.white,
-                side: const BorderSide(color: Colors.pinkAccent, width: 2),
+                side: const BorderSide(color: AppColors.primary2, width: 2),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
