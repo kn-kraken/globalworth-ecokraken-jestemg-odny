@@ -413,7 +413,7 @@ class _MealShareActionScreenState extends State<MealShareActionScreen> {
             'Jadłodzielenie',
             style: AppStyles.mainBold.copyWith(fontSize: 20),
           ),
-          backgroundColor: AppColors.background2,
+          backgroundColor: AppColors.primary1,
           elevation: 0,
           centerTitle: true,
         ),

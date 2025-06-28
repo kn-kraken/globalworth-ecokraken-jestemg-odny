@@ -18,8 +18,14 @@ class FoodActionScreen extends StatelessWidget {
             icon: Icon(Icons.arrow_back, color: AppColors.text1),
             onPressed: () => Navigator.of(context).pop(),
           ),
-          title: Text('HunGRY!', style: TextStyle(color: AppColors.text1)),
-          backgroundColor: Colors.grey[200],
+          title: Text(
+            'Organizacja jedzenia',
+            style: AppStyles.mainBold.copyWith(
+              fontSize: 20,
+              color: AppColors.text1,
+            ),
+          ),
+          backgroundColor: AppColors.primary1,
           elevation: 0,
           centerTitle: true,
           iconTheme: IconThemeData(color: AppColors.text1),

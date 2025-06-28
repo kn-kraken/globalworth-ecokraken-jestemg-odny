@@ -31,7 +31,14 @@ class _LunchListWidgetState extends State<LunchListWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Wyjście na lunch'), centerTitle: true),
+      appBar: AppBar(
+        title: Text(
+          'Wyjście na lunch',
+          style: AppStyles.mainBold.copyWith(fontSize: 20),
+        ),
+        centerTitle: true,
+        backgroundColor: AppColors.primary1,
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _showAddLunchDialog(context),
         // backgroundColor: AppColors.primary1,
@@ -121,7 +128,7 @@ class _LunchListWidgetState extends State<LunchListWidget> {
                 style: OutlinedButton.styleFrom(
                   backgroundColor: AppColors.background2,
                   foregroundColor: AppColors.primary1, // Text color
-                  side: BorderSide(color: Colors.pink, width: 2),
+                  side: BorderSide(color: AppColors.primary2, width: 2),
                   minimumSize: Size(double.infinity, 45),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -190,9 +197,9 @@ class _LunchListWidgetState extends State<LunchListWidget> {
               SizedBox(height: 12),
               OutlinedButton(
                 style: OutlinedButton.styleFrom(
-                  foregroundColor: Colors.pink, // Text color
+                  foregroundColor: AppColors.primary1, // Text color
                   side: BorderSide(
-                    color: Colors.pink,
+                    color: AppColors.primary1,
                     width: 2,
                   ), // Border color
                   minimumSize: Size(double.infinity, 45),

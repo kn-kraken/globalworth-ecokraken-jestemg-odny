@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   AppColors._();
-  static const Color primary1 = Color(0xFFfcba03);
-  static const Color primary2 = Color.fromARGB(255, 255, 203, 60);
-  static const Color primary3 = Color.fromARGB(255, 255, 213, 98);
-  static const Color primary4 = Color.fromARGB(255, 255, 232, 167);
+  static const Color primary1 = Color(0xFFe4aa00);
+  static const Color primary2 = Color(0xFFE7BD3D);
+  static const Color primary3 = Color(0xFFEED27D);
+  static const Color primary4 = Color(0xFFE9D599);
+
+  static const Color secondary1 = Color(0xFFEC5129);
+  static const Color secondary2 = Color.fromARGB(255, 255, 144, 117);
+  static const Color secondary3 = Color.fromARGB(255, 255, 211, 199);
 
   static const Color background1 = Color(0xFFECECEC);
   static const Color background2 = Color(0xFFFCFCFC);

@@ -21,7 +21,7 @@ class _OrderScreenState extends State<OrderScreen> {
             'Zamówienia grupowe',
             style: AppStyles.mainBold.copyWith(fontSize: 20),
           ),
-          backgroundColor: AppColors.background2,
+          backgroundColor: AppColors.primary1,
           elevation: 0,
           centerTitle: true,
         ),
@@ -516,7 +516,14 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
 
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(title: Text('Szczegóły zamówienia'), elevation: 2),
+        appBar: AppBar(
+          title: Text(
+            'Szczegóły zamówienia',
+            style: AppStyles.mainBold.copyWith(fontSize: 20),
+          ),
+          backgroundColor: AppColors.primary1,
+          elevation: 2,
+        ),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
